@@ -16,11 +16,11 @@ public class MontyHall {
         for (int i = 0; i < count; i++) {
             carDoor = random.nextInt(1,4);
             playersDoor = random.nextInt(1,4);
-            hostDoor = hostChoice(carDoor, playersDoor);
+            hostDoor = pickADoor(carDoor, playersDoor);
             boolean switchDoor = random.nextBoolean();
 
             if(switchDoor){
-                playersDoor = hostChoice(playersDoor, hostDoor);
+                playersDoor = pickADoor(playersDoor, hostDoor);
                 if(playersDoor == carDoor){
                     result.put(i, "Победа(смена)");
                 }
@@ -35,7 +35,7 @@ public class MontyHall {
         }
     }
 
-    private int hostChoice(int door1, int door2){
+    private int pickADoor(int door1, int door2){
         int result;
         do {
             result = random.nextInt(1, 4);
